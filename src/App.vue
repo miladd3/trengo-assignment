@@ -1,10 +1,13 @@
 <template>
-  <div id="app"><FontAwesomeIcon icon="user-secret" /></div>
+  <div id="app"><ChannelManager /></div>
 </template>
 
 <script>
+import ChannelManager from '@/components/channels/ChannelManager/ChannelManager';
+
 export default {
   name: 'App',
+  components: { ChannelManager },
 };
 </script>
 
