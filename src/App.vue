@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ChannelManager from '@/components/channels/ChannelManager/ChannelManager';
+import ChannelManager from '@/components/channels/ChannelManager';
 
 export default {
   name: 'App',

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TgButton from '@/components/forms/TgButton/TgButton';
+import TgButton from '@/components/forms/TgButton';
 export default {
   name: 'ChannelManager',
   components: { TgButton },
