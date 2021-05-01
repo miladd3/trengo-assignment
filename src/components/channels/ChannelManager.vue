@@ -1,17 +1,22 @@
 <template>
-  <div class="channel-manager">
-    <TgInput />
-    <TgButton primary>button</TgButton>
+  <div
+    class="channel-manager max-w-xl p-4 border border-gray-350 rounded-xl w-full shadow"
+  >
+    <SearchField placeholder="hello" />
+    <TgButton v-show="false" primary>button</TgButton>
   </div>
 </template>
 
 <script>
 import TgButton from '@/components/forms/TgButton';
-import TgInput from '@/components/forms/TgInput';
+import SearchField from '@/components/forms/SearchField';
 export default {
   name: 'ChannelManager',
-  components: { TgInput, TgButton },
+  components: { SearchField, TgButton },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.channel-manager {
+}
+</style>

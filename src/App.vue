@@ -1,5 +1,7 @@
 <template>
-  <div id="app"><ChannelManager /></div>
+  <div id="app" class="flex justify-center items-center h-screen">
+    <ChannelManager />
+  </div>
 </template>
 
 <script>
