@@ -73,7 +73,7 @@ export default {
       this.randomIcon = getRandomIcon();
     },
     items() {
-      if (this.items.length !== this.storedItem.length) {
+      if (JSON.stringify(this.items) !== JSON.stringify(this.storedItem)) {
         this.updated = true;
       }
     },
