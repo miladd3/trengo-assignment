@@ -1,11 +1,12 @@
 <template>
   <button
-    class="tg-button font-semibold h-8 px-6 rounded-full inline-flex items-center justify-center"
+    class="tg-button"
     :class="{
       'bg-black text-black border-none text-white': primary,
       'border border-gray-350 text-black': outlined,
       'text-gray-500 border-none': !primary && !outlined,
     }"
+    @click="$emit('click')"
   >
     <slot />
   </button>
@@ -21,4 +22,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.tg-button {
+  @apply font-semibold h-8 px-6 rounded-full inline-flex items-center justify-center;
+}
+</style>
