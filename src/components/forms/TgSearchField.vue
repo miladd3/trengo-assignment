@@ -8,7 +8,7 @@
 <script>
 import TgInput from '@/components/forms/TgInput';
 export default {
-  name: 'SearchField',
+  name: 'TgSearchField',
   components: { TgInput },
   props: {
     placeholder: {

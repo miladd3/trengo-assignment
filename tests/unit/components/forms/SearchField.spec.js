@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import SearchField from '@/components/forms/SearchField';
+import TgSearchField from '@/components/forms/TgSearchField';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -9,15 +9,16 @@ const localVue = createLocalVue();
 
 localVue.component('FontAwesomeIcon', FontAwesomeIcon);
 
-describe('SearchField', () => {
+describe('TgSearchField', () => {
   it('should change the data with vue model', async () => {
     const wrapper = mount(
       {
-        components: { SearchField },
+        components: { TgSearchField },
         data() {
           return { text: '' };
         },
-        template: `<SearchField v-model="text" />`,
+        template: `
+          <TgSearchField v-model="text" />`,
       },
       { localVue }
     );

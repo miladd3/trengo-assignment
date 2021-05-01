@@ -24,6 +24,6 @@ export default {
 
 <style scoped>
 .tg-button {
-  @apply font-semibold h-8 px-6 rounded-full inline-flex items-center justify-center;
+  @apply font-semibold h-8 px-6 rounded-full inline-flex text-sm items-center justify-center;
 }
 </style>
