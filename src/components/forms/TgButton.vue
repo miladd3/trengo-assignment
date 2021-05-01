@@ -5,7 +5,9 @@
       'bg-black text-black border-none text-white': primary,
       'border border-gray-350 text-black': outlined,
       'text-gray-500 border-none': !primary && !outlined,
+      'bg-gray-500 text-white cursor-default': disabled,
     }"
+    :disabled="disabled"
     @click="$emit('click')"
   >
     <slot />
@@ -18,6 +20,7 @@ export default {
   props: {
     outlined: { type: Boolean, default: false },
     primary: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
   },
 };
 </script>

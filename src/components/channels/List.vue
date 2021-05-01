@@ -1,5 +1,5 @@
 <template>
-  <div class="tg-list max-h-60 overflow-auto -mx-4 px-4">
+  <div class="tg-list max-h-64 overflow-auto -mx-4 px-4">
     <draggable
       v-model="_items"
       handle=".handler"

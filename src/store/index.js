@@ -5,7 +5,16 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    items: [],
+    items: [
+      { id: 1, icon: 'phone', label: 'Team@trengo.com' },
+      { id: 2, icon: 'phone', label: 'Call center' },
+      { id: 3, icon: ['fab', 'whatsapp'], label: 'Whatsapp business' },
+      {
+        id: 4,
+        icon: 'envelope',
+        label: '(test) development California',
+      },
+    ],
   },
   mutations: {
     setItems(state, payload) {

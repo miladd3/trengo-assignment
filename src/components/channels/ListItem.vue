@@ -1,5 +1,5 @@
 <template>
-  <div class="tg-list-item">
+  <div class="tg-list-item" :title="label">
     <div class="left flex h-10 w-full items-center">
       <div class="handler cursor-move mr-3 text-gray-400 flex-shrink-0">
         <FontAwesomeIcon icon="grip-vertical" v-if="!noList" />

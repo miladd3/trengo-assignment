@@ -4,7 +4,8 @@
     class="tg-input px-4"
     :placeholder="placeholder"
     v-model="_value"
-    @change="this.$emit('change', $event)"
+    @change="$emit('change', $event)"
+    @keyup.enter="$emit('enter', $event)"
   />
 </template>
 

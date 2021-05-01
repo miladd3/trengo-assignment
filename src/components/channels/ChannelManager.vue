@@ -22,8 +22,10 @@
     />
 
     <div class="actions flex flex-row-reverse pt-3 h-10">
-      <TgButton primary class="ml-2">Apply</TgButton>
-      <TgButton outlined>Cancel</TgButton>
+      <TgButton primary class="ml-2" :disabled="!updated" @click="apply">
+        Apply
+      </TgButton>
+      <TgButton outlined @click="cancel">Cancel</TgButton>
     </div>
   </div>
 </template>
@@ -42,19 +44,14 @@ export default {
     return {
       searchKey: '',
       randomIcon: getRandomIcon(),
-      items: [
-        { id: 1, icon: ['fab', 'whatsapp'], label: 'hello' },
-        { id: 3, icon: ['fab', 'whatsapp'], label: 'hello' },
-        { id: 4, icon: ['fab', 'whatsapp'], label: 'hello' },
-        {
-          id: 2,
-          icon: 'phone',
-          label: '(test) development California (test) development California',
-        },
-      ],
+      items: [],
+      updated: false,
     };
   },
   computed: {
+    storedItem() {
+      return this.$store.state.items;
+    },
     searched() {
       if (!this.searchKey) return [];
       return this.items.filter((item) =>
@@ -68,9 +65,17 @@ export default {
       return !this.searchKey || (this.searchKey && this.searched.length);
     },
   },
+  mounted() {
+    this.populateItems();
+  },
   watch: {
     shouldCreate() {
       this.randomIcon = getRandomIcon();
+    },
+    items() {
+      if (this.items.length !== this.storedItem.length) {
+        this.updated = true;
+      }
     },
   },
   methods: {
@@ -80,7 +85,28 @@ export default {
     onRemove(id) {
       this.items = this.items.filter((item) => item.id !== id);
     },
-    createSubmit() {},
+    populateItems() {
+      this.items = this.storedItem.map((a) => ({ ...a }));
+    },
+    createSubmit(label) {
+      const id = (this.items[this.items.length - 1]?.id || 0) + 1;
+
+      const item = {
+        label,
+        id,
+        icon: this.randomIcon,
+      };
+
+      this.searchKey = '';
+      this.items.push(item);
+    },
+    apply() {
+      this.$store.commit('setItems', this.items);
+      this.$toasted.success('Changes Saved');
+    },
+    cancel() {
+      this.populateItems();
+    },
   },
 };
 </script>
