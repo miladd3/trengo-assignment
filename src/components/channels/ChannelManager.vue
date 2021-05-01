@@ -21,11 +21,11 @@
       @remove="onRemove"
     />
 
-    <div class="actions flex flex-row-reverse pt-3 h-10">
-      <TgButton primary class="ml-2" :disabled="!updated" @click="apply">
-        Apply
-      </TgButton>
-      <TgButton outlined @click="cancel">Cancel</TgButton>
+    <div class="actions pt-3">
+      <div class="flex flex-row-reverse fade-in" v-if="updated">
+        <TgButton primary class="ml-2" @click="apply"> Apply </TgButton>
+        <TgButton outlined @click="cancel">Cancel</TgButton>
+      </div>
     </div>
   </div>
 </template>
@@ -102,9 +102,11 @@ export default {
     },
     apply() {
       this.$store.commit('setItems', this.items);
+      this.updated = false;
       this.$toasted.success('Changes Saved');
     },
     cancel() {
+      this.updated = false;
       this.populateItems();
     },
   },
@@ -112,6 +114,19 @@ export default {
 </script>
 
 <style scoped>
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s 1;
+}
 .channel-manager .actions {
   box-sizing: content-box;
 }
