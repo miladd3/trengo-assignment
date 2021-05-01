@@ -1,7 +1,7 @@
 <template>
   <input
     :type="type"
-    class="tg-input"
+    class="tg-input px-4"
     :placeholder="placeholder"
     v-model="_value"
     @change="this.$emit('change', $event)"
@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .tg-input {
-  @apply border border-gray-350 h-10 rounded-full px-4;
+  @apply w-full border border-gray-350 h-10 rounded-full placeholder-gray-600;
 }
 
 .tg-input:focus {

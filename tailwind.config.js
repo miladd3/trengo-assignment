@@ -10,7 +10,7 @@ module.exports = {
     },
     boxShadow: {
       DEFAULT:
-        '0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 13px 28px 0 rgba(0, 0, 0, 0.04)',
+        '0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 13px 28px 0 rgba(0, 0, 0, 0.04)',
     },
     extend: {},
   },
