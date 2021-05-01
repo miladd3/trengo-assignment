@@ -6,7 +6,7 @@
       @start="drag = true"
       @end="drag = false"
     >
-      <TransitionGroup type="transition" :name="!drag ? 'flip-list' : null">
+      <TransitionGroup type="transition" name="flip-list" v-bind="dragOptions">
         <ListItem
           v-for="item in _items"
           :key="item.id"
@@ -28,6 +28,7 @@ export default {
   components: { ListItem, draggable },
   props: {
     items: { type: Array, default: () => [] },
+    showItems: { type: Array, default: null },
   },
   data() {
     return {
@@ -37,11 +38,19 @@ export default {
   computed: {
     _items: {
       get() {
+        if (this.showItems.length) return this.showItems;
         return this.items;
       },
       set(val) {
         this.$emit('change', val);
       },
+    },
+    dragOptions() {
+      return {
+        animation: 200,
+        disabled: false,
+        ghostClass: 'ghost',
+      };
     },
   },
   methods: {

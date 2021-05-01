@@ -1,13 +1,15 @@
 <template>
   <div class="tg-list-item">
     <div class="left flex h-10 w-full items-center">
-      <div class="handler cursor-move mr-3 text-gray-400">
-        <FontAwesomeIcon icon="grip-vertical" />
+      <div class="handler cursor-move mr-3 text-gray-400 flex-shrink-0">
+        <FontAwesomeIcon icon="grip-vertical" v-if="!noList" />
       </div>
       <ListIcon :icon="icon" class="flex-shrink-0" />
       <div class="label font-medium ml-3 truncate max-w-full">{{ label }}</div>
     </div>
-    <TgButton @click="$emit('remove', id)" class="remove-btn">Remove</TgButton>
+    <TgButton @click="$emit('remove', id)" class="remove-btn" v-if="!noList">
+      Remove
+    </TgButton>
   </div>
 </template>
 
@@ -30,6 +32,10 @@ export default {
       type: [String, Number],
       default: '',
     },
+    noList: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -37,6 +43,10 @@ export default {
 <style scoped>
 .tg-list-item {
   @apply h-14 items-center flex justify-between pl-4 w-full bg-white;
+}
+
+.handler {
+  width: 0.625rem;
 }
 
 .tg-list-item:focus {

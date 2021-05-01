@@ -1,8 +1,11 @@
 <template>
-  <div class="search-field relative flex items-center">
+  <form
+    class="search-field relative flex items-center"
+    @submit.prevent="$emit('submit', _value)"
+  >
     <FontAwesomeIcon icon="search" class="absolute left-3 text-gray-450" />
     <TgInput v-model="_value" :placeholder="placeholder" class="pl-10" />
-  </div>
+  </form>
 </template>
 
 <script>
